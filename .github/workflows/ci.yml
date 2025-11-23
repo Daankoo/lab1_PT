@@ -1,0 +1,17 @@
+name: C++ Auto Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    # Крок 1: Компіляція (збираємо саме файл auto_test.cpp)
+    - name: Compile Test
+      run: g++ auto_test.cpp -o run_test
+      
+    # Крок 2: Запуск
+    - name: Run Test
+      run: ./run_test
